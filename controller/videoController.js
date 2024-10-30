@@ -2,6 +2,7 @@ const formidable = require('formidable');
 const ffmpeg = require('fluent-ffmpeg');
 const path = require('path');
 const fs = require('fs-extra');
+const os = require('os');
 const ffmpegPath = require('ffmpeg-static');
 const ffprobePath = require('ffprobe-static').path;
 const cloudinary = require('../lib/cloudinaryConfig');
@@ -9,7 +10,8 @@ const cloudinary = require('../lib/cloudinaryConfig');
 ffmpeg.setFfmpegPath(ffmpegPath);
 ffmpeg.setFfprobePath(ffprobePath);
 
-const tempDir = path.join(__dirname, '../uploads/video');
+// const tempDir = path.join(__dirname, '../uploads/video');
+const tempDir = path.join(os.tmpdir(), 'uploads/video');
 
 // Ensure temp directory exists
 if (!fs.existsSync(tempDir)) fs.mkdirSync(tempDir, { recursive: true });
