@@ -12,7 +12,9 @@ const PORT = process.env.PORT || 5000;
 app.use(
     cors({
         origin: [
-            "https://converter-frontend-rosy.vercel.app/"
+            "https://converter-frontend-rosy.vercel.app/",
+            "http://localhost:3000/",
+            "http://localhost:3001/"
         ],
         credentials: true,
     })
