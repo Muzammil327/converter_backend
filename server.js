@@ -9,7 +9,14 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware to handle CORS
-app.use(cors());
+app.use(
+    cors({
+        origin: [
+            "https://converter-frontend-rosy.vercel.app/"
+        ],
+        credentials: true,
+    })
+);
 
 // Endpoints
 app.post('/convert/image', convertImage);
