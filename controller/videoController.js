@@ -3,12 +3,12 @@ const ffmpeg = require('fluent-ffmpeg');
 const path = require('path');
 const fs = require('fs-extra');
 const os = require('os');
+const ffmpegPath = require('ffmpeg-static');
+const ffprobePath = require('ffprobe-static').path;
 const cloudinary = require('../lib/cloudinaryConfig');
 
-// Set FFmpeg path from environment variable or static path
-const ffmpegPath = process.env.FFMPEG_PATH || '/opt/bin/ffmpeg'; // Assuming /opt/bin/ffmpeg is the path in your Lambda layer
-
 ffmpeg.setFfmpegPath(ffmpegPath);
+ffmpeg.setFfprobePath(ffprobePath);
 
 const mergeVideos = (req, res) => {
     const form = new formidable.IncomingForm();
