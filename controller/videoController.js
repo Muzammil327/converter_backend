@@ -5,8 +5,8 @@ const fs = require('fs-extra');
 const os = require('os');
 const cloudinary = require('../lib/cloudinaryConfig');
 
-// Try using a more explicit path for ffmpeg
-const ffmpegPath = process.env.FFMPEG_PATH || require('ffmpeg-static').path;
+// Set FFmpeg path from environment variable or static path
+const ffmpegPath = process.env.FFMPEG_PATH || '/opt/bin/ffmpeg'; // Assuming /opt/bin/ffmpeg is the path in your Lambda layer
 
 ffmpeg.setFfmpegPath(ffmpegPath);
 
