@@ -3,12 +3,12 @@ const ffmpeg = require('fluent-ffmpeg');
 const path = require('path');
 const fs = require('fs-extra');
 const os = require('os');
-const ffmpegPath = require('ffmpeg-static');
-const ffprobePath = require('ffprobe-static').path;
 const cloudinary = require('../lib/cloudinaryConfig');
 
+// Try using a more explicit path for ffmpeg
+const ffmpegPath = process.env.FFMPEG_PATH || require('ffmpeg-static').path;
+
 ffmpeg.setFfmpegPath(ffmpegPath);
-ffmpeg.setFfprobePath(ffprobePath);
 
 const mergeVideos = (req, res) => {
     const form = new formidable.IncomingForm();
